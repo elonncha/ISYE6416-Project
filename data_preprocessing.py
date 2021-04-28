@@ -1,15 +1,22 @@
 import numpy as np
 import pandas as pd
-
+from zipfile import ZipFile
 
 def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
-                  meta_path = 'data/ejscreen/ejscreen_meta.xlsx'):
+                  meta_path = 'data/ejscreen/ejscreen_meta.xlsx',
+                  unzip = False):
     '''
 
     :param data_path:
     :param meta_path:
-    :return: pd dataframe of EJSCREEEN data
+    :param unzip:
+    :return:
     '''
+    if unzip:
+        with ZipFile('data/ejscreen/EJSCREEN_2020_USPR.csv.zip', 'r') as zipObj:
+            # Extract all the contents of zip file in current directory
+            zipObj.extractall('data/ejscreen')
+
 
     ejscreen, meta = pd.read_csv(data_path), pd.read_excel(meta_path)
 
@@ -61,4 +68,4 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
 
 
 
-ejs = load_ejscreen()
+ejs = load_ejscreen(unzip = False)
