@@ -65,7 +65,3 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
     ejs_df = sum_agg.join(mean_agg, how = 'inner', on = sum_agg.index).dropna()
 
     return(ejs_df)
-
-
-
-ejs = load_ejscreen(unzip = True)
