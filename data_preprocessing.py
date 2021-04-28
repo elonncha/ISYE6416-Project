@@ -4,7 +4,7 @@ from zipfile import ZipFile
 
 def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
                   meta_path = 'data/ejscreen/ejscreen_meta.xlsx',
-                  unzip = False):
+                  unzip = True):
     '''
 
     :param data_path:
@@ -68,4 +68,4 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
 
 
 
-ejs = load_ejscreen(unzip = False)
+ejs = load_ejscreen(unzip = True)
