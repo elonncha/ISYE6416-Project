@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 from zipfile import ZipFile
+from sklearn.preprocessing import StandardScaler
+
+
 
 def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
                   meta_path = 'data/ejscreen/ejscreen_meta.xlsx',
