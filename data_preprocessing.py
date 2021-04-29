@@ -67,10 +67,14 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
     return(ejs_df)
 
 
+def load_cdc():
+    pass
+
 
 def combining_data():
     ejs = load_ejscreen(unzip = True)
     cdc = pd.read_csv('data/cdc/cdc_places.csv')
+    # cdc = load_cdc()
 
     # fix tract id
     cdc['TractFIPS'] = cdc['TractFIPS'].astype('int')
@@ -99,3 +103,7 @@ def combining_data():
 
     #output
     data_cleaned.to_csv('data/data_cleaned.csv')
+
+
+if __name__ == '__main__':
+    combining_data()
