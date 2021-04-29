@@ -21,7 +21,7 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
     ejscreen, meta = pd.read_csv(data_path), pd.read_excel(meta_path)
 
     # column filtering
-    col_mask = np.isin(ejscreen.columns.values, meta['GDB Fieldname'])
+    col_mask = np.isin(ejscreen.columns.values, meta['Name'])
     ejscreen = ejscreen.loc[:,col_mask]
 
     # na drop
@@ -65,3 +65,37 @@ def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
     ejs_df = sum_agg.join(mean_agg, how = 'inner', on = sum_agg.index).dropna()
 
     return(ejs_df)
+
+
+
+def combining_data():
+    ejs = load_ejscreen(unzip = True)
+    cdc = pd.read_csv('data/cdc/cdc_places.csv')
+
+    # fix tract id
+    cdc['TractFIPS'] = cdc['TractFIPS'].astype('int')
+    cdc['TractFIPS'] = cdc['TractFIPS'].astype('str')
+    tract_id = []
+    for id in cdc['TractFIPS']:
+        if len(id) == 10:
+            tract_id.append('0' + id)
+        else:
+            tract_id.append(id)
+
+    cdc['TractFIPS'] = tract_id
+
+    # na drop
+    for c in cdc.columns.values:  # coerce type casting
+        if c != 'TractFIPS':
+            cdc[c] = pd.to_numeric(cdc[c], errors='coerce')
+    cdc = cdc.dropna()
+
+    # divide percent by 100
+    cdc.iloc[:,1:] = cdc.iloc[:,1:] / 100
+
+    # join
+    data = ejs.merge(cdc, how = 'left', left_on = 'key_0', right_on = 'TractFIPS')
+    data_cleaned = data.drop(columns = ['key_0', 'AREALAND', 'AREAWATER', 'TractFIPS']).dropna()
+
+    #output
+    data_cleaned.to_csv('data/data_cleaned.csv')
