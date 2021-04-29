@@ -105,5 +105,26 @@ def combining_data():
     data_cleaned.to_csv('data/data_cleaned.csv')
 
 
+
+def load_data(target, path = 'data/data_cleaned.csv', standardize = True):
+    '''
+    :param path: file directory
+    :param target: string: ['cancer', 'chd', 'mental']
+    :param standardize: if standardize data
+    :return: X: data; y: target
+    '''
+    dic = {'cancer':0, 'chd':1, 'mental':2}
+    data = pd.read_csv(path).iloc[:,1:]
+    X,y = data.iloc[:,0:32], data.iloc[:,32 + dic[target]]
+
+    if standardize:
+        X = pd.DataFrame(StandardScaler().fit_transform(X), columns = X.columns)
+    return(X, y)
+
+
+
+
+
+
 if __name__ == '__main__':
     combining_data()
