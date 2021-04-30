@@ -7,3 +7,7 @@
 .idea/ISYE6416-Project.iml
 .idea/inspectionProfiles/profiles_settings.xml
 data/ejscreen/EJSCREEN_2020_USPR.csv
+__pycache__/data_preprocessing.cpython-37.pyc
+.idea/rSettings.xml
+.idea/rpackages.xml
+.idea/rGraphicsSettings.xml
