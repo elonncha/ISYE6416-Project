@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
-from zipfile import ZipFile
-from sklearn.preprocessing import StandardScaler
 
+from zipfile import ZipFile
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
 
 
 def load_ejscreen(data_path = 'data/ejscreen/EJSCREEN_2020_USPR.csv',
@@ -108,7 +110,6 @@ def combining_data():
     data_cleaned.to_csv('data/data_cleaned.csv')
 
 
-
 def load_data(target, path = 'data/data_cleaned.csv', standardize = True):
     '''
     :param path: file directory
@@ -125,6 +126,20 @@ def load_data(target, path = 'data/data_cleaned.csv', standardize = True):
     return(X, y)
 
 
+def split_dataset(X,y, train_fraction = 0.75):
+    '''
+    :param X: dataset
+    :param y: target
+    :param train_fraction: fraction of the training set
+    :return: X_train, X_test, y_train, y_test
+    '''
+
+    X_train, X_test, y_train, y_test = train_test_split(X,y, train_size = train_fraction, shuffle = True)
+    return(X_train, X_test, y_train, y_test)
+
+
+def plot_correlation(X, save_to_path = ''):
+    pass
 
 
 
