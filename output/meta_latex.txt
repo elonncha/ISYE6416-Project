@@ -1,0 +1,48 @@
+\begin{longtable}{lll}
+\toprule
+{} &          Name &                                        Description \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{{Continued on next page}} \\
+\midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+0  &     ACSTOTPOP &                                   Total population \\
+1  &       NPL\_CNT &        Number of NPL facilities in the block group \\
+2  &      TSDF\_CNT &       Number of TSDF facilities in the block group \\
+3  &      MINORPCT &                                  \% people of color \\
+4  &     LOWINCPCT &                                       \% low-income \\
+5  &     LESSHSPCT &                            \% less than high school \\
+6  &    LINGISOPCT &  \% of households (interpreted as individuals) i... \\
+7  &     UNDER5PCT &                                      \% under age 5 \\
+8  &     OVER64PCT &                                      \% over age 64 \\
+9  &    PRE1960PCT &          \% pre-1960 housing (lead paint indicator) \\
+10 &         DSLPM &             Diesel particulate matter level in air \\
+11 &        CANCER &                             Air toxics cancer risk \\
+12 &          RESP &                Air toxics respiratory hazard index \\
+13 &         PTRAF &                       Traffic proximity and volume \\
+14 &          PNPL &  Proximity to National Priorities List (NPL) sites \\
+15 &          PRMP &  Proximity to Risk Management Plan (RMP) facili... \\
+16 &         PTSDF &  Proximity to Treatment Storage and Disposal (T... \\
+17 &         OZONE &                                 Ozone level in air \\
+18 &          PM25 &                                 PM2.5 level in air \\
+19 &        ACCESS &  crude prevalence of current lack of health ins... \\
+20 &         BINGE &                 crude prevalence of binge drinking \\
+21 &         BPMED &  crude prevalence of taking medicine for high b... \\
+22 &       CHECKUP &  crude prevalence of visits to doctor for routi... \\
+23 &    CHOLSCREEN &         crude prevalence of cholesterol screening  \\
+24 &  COLON\_SCREEN &  crude prevalence of fecal occult blood test, s... \\
+25 &         COREM &  crude prevalence of older adult men who are up... \\
+26 &         COREW &  crude prevalence of older adult women who are ... \\
+27 &      CSMOKING &               crude prevalence of current smoking  \\
+28 &        DENTAL &  crude prevalence of visits to dentist or denta... \\
+29 &           LPA &  crude prevalence of no leisure-time physical a... \\
+30 &      MAMMOUSE &   crude prevalence of mammography use among women  \\
+31 &         SLEEP &    crude prevalence of sleeping less than 7 hours  \\
+32 &        cancer &  crude prevalence of cancer (excluding skin can... \\
+33 &           chd &        crude prevalence of coronary heart disease  \\
+34 &       mentalh &  crude prevalence of mental health not good for... \\
+\end{longtable}
